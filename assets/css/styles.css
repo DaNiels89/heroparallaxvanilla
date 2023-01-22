@@ -1,0 +1,327 @@
+/* START Custom properties */
+:root {
+  --clr-light: 0, 0%, 100%;
+  --clr-dark: 0, 0%, 29%;
+  --clr-yellow: 51, 92%, 55%;
+  --clr-dark-yellow: 51, 76%, 51%;
+  --clr-red: 11, 76%, 58%;
+
+  --font-primary: 'Roboto';
+  --font-header: 'Gochi Hand';
+  --font-btn: 'Myriad Pro';
+
+  --fw-4: 400;
+  --fw-7: 700;
+}
+/* END Custom properties */
+/* ----- */
+/* START Font faces */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gochi Hand';
+  src: url('/assets/fonts/Gochi_Hand/GochiHand-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gochi Hand';
+  src: url('/assets/fonts/Gochi_Hand/GochiHand-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('/assets/fonts/myriad-pro/MyriadPro-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+/* END Font faces */
+/* ----- */
+/* START Reset styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+/* END Reset styles */
+/* ----- */
+/* START Styles */
+html {
+  font-size: 1.125rem;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--clr-dark);
+  font-weight: var(--fw-4);
+}
+
+a {
+  color: var(--clr-dark);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-within {
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: var(--font-header);
+  color: hsl(var(--clr-light));
+  font-size: 4.875rem;
+  line-height: 1.15;
+  max-width: 15ch;
+  /* padding-inline-end: 3.125rem; */
+}
+
+/* button {
+  font-family: var(--font-btn);
+} */
+
+/* START Nav */
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 6.25rem;
+  padding-inline: 1.875rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav__ul {
+  display: flex;
+  align-content: center;
+  gap: 0.875rem;
+}
+
+.main-nav__li {
+  list-style-type: none;
+  transition: all 300ms ease;
+}
+
+.main-nav__li a {
+  padding-inline: 0.5rem;
+}
+
+.link-arrow {
+  display: flex;
+  align-items: center;
+}
+
+.link-arrow svg {
+  margin-left: 5px;
+}
+
+.brand-logo {
+  padding-block: 1.875rem;
+}
+
+.img-logo {
+  width: 257px;
+  height: 40px;
+}
+
+.nav-rest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.input-search {
+  background-color: transparent;
+  height: 2rem;
+  border-radius: 10rem;
+  padding-left: 2rem;
+  padding-right: 6rem;
+  position: relative;
+  border: 2px solid hsl(var(--clr-dark));
+}
+
+.input-search::placeholder {
+  color: hsl(var(--clr-dark));
+}
+
+.input-search::before {
+  content: '';
+  background-image: url('/assets/img/icons/icon-search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+.my-account__link {
+  display: flex;
+}
+
+.my-account__img {
+  margin-right: 5px;
+}
+
+.btn-basket {
+  height: 1.5rem;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.btn-basket::after {
+  content: '12';
+  background-color: hsl(var(--clr-red));
+  color: hsl(var(--clr-light));
+  font-size: 0.75rem;
+  font-weight: var(--fw-7);
+  padding: 3px;
+  letter-spacing: 0.03em;
+  position: absolute;
+  top: -0.75rem;
+  right: -1rem;
+  border-radius: 2px;
+}
+
+/* Dropdown */
+li ul {
+  display: none;
+}
+
+li:hover ul,
+li:focus-within ul {
+  display: block;
+}
+
+li:hover svg,
+li:focus-within svg {
+  transform: rotate(180deg);
+}
+
+.main-nav__ul .main-nav__li {
+  position: relative;
+}
+
+.dropdown-list {
+  position: absolute;
+  list-style-type: none;
+  width: 24rem;
+  padding: 2rem;
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-list li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+/* Nav styles when scrolled */
+.bg-white {
+  background-color: hsl(var(--clr-light));
+}
+
+.btn-yellow {
+  background-color: hsl(var(--clr-yellow));
+  border-radius: 10rem;
+  color: hsl(var(--clr-light));
+}
+
+.btn-yellow svg path {
+  fill: hsl(var(--clr-light));
+}
+/* END Nav */
+
+/* START Hero section */
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(0deg, rgba(131, 182, 210, 0.9), rgba(131, 182, 210, 0.9)), url('/assets/img/roselyn-tirado.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero .container {
+  width: 100%;
+  max-width: 84.375rem;
+  margin-inline: auto; 
+  height: calc(100vh - 6.25rem);
+  height: calc(100dvh - 6.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: 1.875rem;
+}
+
+.hero-btn {
+  background-color: hsl(var(--clr-yellow));
+  font-family: var(--font-btn);
+  color: hsl(var(--clr-light));
+  font-weight: var(--fw-7);
+  padding-block: 1.125rem;
+  padding-inline: 2.5rem;
+  border: none;
+  border-radius: 10rem;
+  margin-top: 3.125rem;
+}
+
+.hero-btn:hover,
+.hero-btn:focus-within {
+  background-color: hsl(var(--clr-dark-yellow));
+}
+/* END Hero section */
+
+/* END Styles */
